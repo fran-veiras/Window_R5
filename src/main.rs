@@ -1,4 +1,4 @@
-use std::io::Write;
+use std::io::{Write, self};
 
 fn main() {
     fn prompt(route:&str) -> String {
