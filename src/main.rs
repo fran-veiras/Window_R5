@@ -1,9 +1,7 @@
-use std::fs::{self, File};
 use std::fs::OpenOptions;
 use std::io::Write;
 mod routes;
-use std::fs::read_to_string;
-use std::error::Error;
+mod utils;
 
 fn main() {
     routes::print_config();
@@ -18,10 +16,12 @@ fn main() {
         return route_app.trim().to_string()
     }
 
-    let mut input:String = prompt("> ");
+    let input:String = prompt("> ");
 
     if input == "add" {
         write_document(input);
+    } else if input == "run" {
+        utils::open::open_files()
     } else if input == "end" {
         
     }
@@ -36,20 +36,13 @@ fn main() {
             .create(true)
             .open("routes.txt");
 
-        writeln!(file?, "{}", newRoute)?;
+        writeln!(file?, "{};", newRoute)?;
 
         let mut newPrompt:String = prompt("> ");
 
         if newPrompt == "end" {} else if newPrompt == "add" {write_document(newPrompt);};
 
         Ok(())
-    }
-
-    fn read_document() -> Result<File, std::io::Error>: AsRef<Path> {
-        let mut file = OpenOptions::new().read(true).open("routes.txt");
-
-        let contents = fs::read_to_string(file);
-
     }
 
     //println!("Abriendo... {}", input);
