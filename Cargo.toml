@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 opener = "0.5.0"
+regex = "1.5"
