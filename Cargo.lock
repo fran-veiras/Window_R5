@@ -35,6 +35,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
 
 [[package]]
+name = "open"
+version = "1.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dcea7a30d6b81a2423cc59c43554880feff7b57d12916f231a79f8d6d9470201"
+dependencies = [
+ "pathdiff",
+ "winapi",
+]
+
+[[package]]
 name = "opener"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -43,6 +53,12 @@ dependencies = [
  "bstr",
  "winapi",
 ]
+
+[[package]]
+name = "pathdiff"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8835116a5c179084a830efb3adc117ab007512b535bc1a21c991d3b32a6b44dd"
 
 [[package]]
 name = "regex"
@@ -93,6 +109,7 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 name = "window_r5"
 version = "0.1.0"
 dependencies = [
+ "open",
  "opener",
  "regex",
 ]
