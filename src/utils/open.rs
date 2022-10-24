@@ -1,7 +1,6 @@
 use std::fs::{self, File};
 use std::io::Read;
-use std::str::FromStr;
-use regex::{Captures, Regex};
+use std::process::Command;
 
 pub fn open_files() {
     let mut file = File::open("routes.txt")
@@ -19,10 +18,6 @@ pub fn open_files() {
     for val in vec1 {
         let route = val.replace(";", "").replace("\n", "");
 
-
-        match open::that(route) {
-            Ok(route) => println!("Opened '{}' successfully.", route),
-            Err(err) => eprintln!("An error occurred when opening"),
-        }
+        Command::new(route).spawn();
     }
 }
